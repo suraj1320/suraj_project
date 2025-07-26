@@ -18,9 +18,22 @@
       to { opacity: 1; transform: translateY(0);}
     }
     .card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      transition: all 0.2s;
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      border: 2px solid #0d6efd;
+    }
+    .feature-animate {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s forwards;
+      animation-delay: 0.2s;
+    }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -36,11 +49,12 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Example Navbar for all pages -->
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-bag"></i> Shop</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html"><i class="bi bi-bag"></i> Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -114,16 +128,96 @@
           </div>
         </div>
       </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Loafer">
+          <div class="card-body">
+            <h5 class="card-title">Stylish Loafer</h5>
+            <p class="card-text">Slip into comfort with our stylish loafers, perfect for office or casual outings.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="fw-bold">$69.99</p>
+            <a href="#" class="btn btn-outline-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Boot">
+          <div class="card-body">
+            <h5 class="card-title">Leather Boot</h5>
+            <p class="card-text">Rugged and stylish leather boots for all your adventures.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="fw-bold">$89.99</p>
+            <a href="#" class="btn btn-outline-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm feature-animate">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Sport Shoe">
+          <div class="card-body">
+            <h5 class="card-title">Sport Shoe</h5>
+            <p class="card-text">High-performance sport shoes for your workout and training sessions.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="fw-bold">$64.99</p>
+            <a href="#" class="btn btn-outline-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm feature-animate">
+          <img src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f8d9?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Kids Shoe">
+          <div class="card-body">
+            <h5 class="card-title">Kids Shoe</h5>
+            <p class="card-text">Fun and colorful shoes designed for kids’ comfort and play.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="fw-bold">$39.99</p>
+            <a href="#" class="btn btn-outline-primary">View Details</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section class="bg-dark text-light py-5">
+  <section id="about" class="bg-dark text-light py-5">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6 mb-4 mb-md-0">
           <h2>About Aurex Shoes</h2>
-          <p>At Aurex Shoes, we believe in combining comfort, quality, and style. Our mission is to provide footwear that fits your lifestyle and keeps you moving forward.</p>
+          <p>
+            Aurex Shoes is dedicated to blending comfort, quality, and style in every pair. 
+            Our mission is to provide footwear that fits your lifestyle and keeps you moving forward.
+          </p>
+          <ul>
+            <li>Premium materials for lasting durability</li>
+            <li>Modern designs for every occasion</li>
+            <li>Customer satisfaction is our top priority</li>
+          </ul>
         </div>
         <div class="col-md-6 text-center">
           <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" class="img-fluid rounded" alt="About Aurex Shoes">
@@ -160,6 +254,7 @@
               </div>
             </div>
           </div>
+          <!-- Add more testimonials with images if you want -->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon"></span>
@@ -172,7 +267,7 @@
   </section>
 
   <!-- Subscribe Section -->
-  <section class="py-5 bg-primary text-light">
+  <section id="contact" class="py-5 bg-primary text-light">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 text-center">
@@ -192,23 +287,45 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-light py-4">
-    <div class="container text-center">
-      <div class="mb-2">
-        <a href="mailto:info@aurexshoes.com" class="me-3 text-dark text-decoration-none">
-          <i class="bi bi-envelope"></i> info@aurexshoes.com
-        </a>
-        <a href="tel:+1234567890" class="me-3 text-dark text-decoration-none">
-          <i class="bi bi-telephone"></i> +1 234 567 890
-        </a>
+  <footer class="bg-dark text-light pt-5 pb-3">
+    <div class="container">
+      <div class="row">
+        <!-- Logo & About -->
+        <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+          <img src="logo.png" alt="Aurex Shoes Logo" width="50" class="mb-3">
+          <p>
+            <strong>Aurex Shoes</strong><br>
+            Step into style and comfort. Premium footwear for every occasion.
+          </p>
+        </div>
+        <!-- Quick Links -->
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+            <li><a href="shop.html" class="text-light text-decoration-none">Shop</a></li>
+            <li><a href="#about" class="text-light text-decoration-none">About</a></li>
+            <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Contact & Social -->
+        <div class="col-md-4 text-center text-md-start">
+          <h5>Contact Us</h5>
+          <p class="mb-1"><i class="bi bi-envelope"></i> info@aurexshoes.com</p>
+          <p class="mb-1"><i class="bi bi-telephone"></i> +1 234 567 890</p>
+          <p class="mb-2"><i class="bi bi-geo-alt"></i> 123 Main Street, Mumbai, India</p>
+          <div>
+            <a href="#" class="me-2 text-light" data-bs-toggle="tooltip" title="Facebook"><i class="bi bi-facebook fs-5"></i></a>
+            <a href="#" class="me-2 text-light" data-bs-toggle="tooltip" title="Instagram"><i class="bi bi-instagram fs-5"></i></a>
+            <a href="#" class="me-2 text-light" data-bs-toggle="tooltip" title="Twitter"><i class="bi bi-twitter fs-5"></i></a>
+            <a href="#" class="me-2 text-light" data-bs-toggle="tooltip" title="LinkedIn"><i class="bi bi-linkedin fs-5"></i></a>
+          </div>
+        </div>
       </div>
-      <div class="mb-3">
-        <!-- Add data-bs-toggle and title attributes to social links -->
-        <a href="#" class="me-2 text-dark" data-bs-toggle="tooltip" title="Facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="me-2 text-dark" data-bs-toggle="tooltip" title="Instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="me-2 text-dark" data-bs-toggle="tooltip" title="Twitter"><i class="bi bi-twitter"></i></a>
+      <hr class="border-secondary my-4">
+      <div class="text-center small">
+        &copy; 2025 Aurex Shoes. All rights reserved. | Designed by Suraj
       </div>
-      <p class="mb-0">&copy; 2025 Aurex Shoes. All rights reserved.</p>
     </div>
   </footer>
 
@@ -222,4 +339,5 @@
     })
   </script>
 </body>
+
 </html>
