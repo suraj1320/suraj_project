@@ -14,6 +14,58 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
       transition: all 0.2s;
     }
+    
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    .modal-body img {
+      height: 300px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    /* Logo Styling */
+    .logo-container {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo-icon {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .logo-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
+    }
+    
+    .logo-icon i {
+      color: white;
+      font-size: 20px;
+    }
+    
+    .brand-text {
+      font-weight: 700;
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
   </style>
 </head>
 <body>
@@ -21,8 +73,12 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="logo.png" alt="Aurex Shoes Logo" width="40" height="40" class="me-2">
-        <span>Aurex Shoes</span>
+        <div class="logo-container me-2">
+          <div class="logo-icon">
+            <i class="bi bi-shoe-1-fill"></i>
+          </div>
+        </div>
+        <span class="brand-text">Aurex Shoes</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -45,31 +101,36 @@
     <!-- Filters & Search -->
     <div class="row mb-4">
       <div class="col-md-4 mb-2">
-        <input type="text" class="form-control" placeholder="Search shoes...">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search shoes...">
       </div>
       <div class="col-md-4 mb-2">
-        <select class="form-select">
-          <option selected>Category</option>
+        <select class="form-select" id="categoryFilter">
+          <option value="">All Categories</option>
           <option value="sneaker">Sneaker</option>
           <option value="running">Running</option>
           <option value="formal">Formal</option>
+          <option value="casual">Casual</option>
+          <option value="athletic">Athletic</option>
+          <option value="hiking">Hiking</option>
+          <option value="dress">Dress</option>
         </select>
       </div>
       <div class="col-md-4 mb-2">
-        <select class="form-select">
-          <option selected>Sort By</option>
+        <select class="form-select" id="sortFilter">
+          <option value="">Sort By</option>
           <option value="price-low">Price: Low to High</option>
           <option value="price-high">Price: High to Low</option>
           <option value="rating">Rating</option>
+          <option value="name">Name A-Z</option>
         </select>
       </div>
     </div>
 
     <div class="row g-4">
       <!-- Product Card 1 -->
-      <div class="col-md-4">
+      <div class="col-md-4 product-item" data-category="sneaker" data-price="49.99" data-rating="4" data-name="Classic Sneaker">
         <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1517263904808-5dc0d6e1b8a6?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Classic Sneaker">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Classic Sneaker">
           <div class="card-body">
             <h5 class="card-title">Classic Sneaker</h5>
             <p class="card-text">Comfort meets style in our classic sneaker. Perfect for everyday wear.</p>
@@ -105,7 +166,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body text-center">
-              <img src="https://images.unsplash.com/photo-1517263904808-5dc0d6e1b8a6?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Classic Sneaker">
+              <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Classic Sneaker">
               <p>Comfort meets style in our classic sneaker. Perfect for everyday wear.</p>
               <p class="fw-bold">$49.99</p>
               <p class="mb-2 small text-muted">
@@ -170,9 +231,9 @@
         </div>
       </div>
       <!-- Product Card 2 -->
-      <div class="col-md-4">
+      <div class="col-md-4 product-item" data-category="running" data-price="59.99" data-rating="3" data-name="Running Shoe">
         <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1528701800484-905909a7b7b2?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Running Shoe">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Running Shoe">
           <div class="card-body">
             <h5 class="card-title">Running Shoe</h5>
             <p class="card-text">Lightweight and durable running shoes for your active lifestyle.</p>
@@ -208,7 +269,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body text-center">
-              <img src="https://images.unsplash.com/photo-1528701800484-905909a7b7b2?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Running Shoe">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Running Shoe">
               <p>Lightweight and durable running shoes for your active lifestyle.</p>
               <p class="fw-bold">$59.99</p>
               <p class="mb-2 small text-muted">
@@ -273,9 +334,9 @@
         </div>
       </div>
       <!-- Product Card 3 -->
-      <div class="col-md-4">
+      <div class="col-md-4 product-item" data-category="formal" data-price="79.99" data-rating="5" data-name="Formal Shoe">
         <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Formal Shoe">
+          <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Formal Shoe">
           <div class="card-body">
             <h5 class="card-title">Formal Shoe</h5>
             <p class="card-text">Elevate your look with our premium formal shoes for special occasions.</p>
@@ -311,7 +372,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body text-center">
-              <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Formal Shoe">
+              <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Formal Shoe">
               <p>Elevate your look with our premium formal shoes for special occasions.</p>
               <p class="fw-bold">$79.99</p>
               <p class="mb-2 small text-muted">
@@ -375,7 +436,525 @@
           </div>
         </div>
       </div>
-      <!-- Add more product cards and modals as needed -->
+      <!-- Product Card 4 -->
+      <div class="col-md-4 product-item" data-category="casual" data-price="44.99" data-rating="5" data-name="Casual Loafers">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Casual Loafers">
+          <div class="card-body">
+            <h5 class="card-title">Casual Loafers</h5>
+            <p class="card-text">Slip-on comfort with a modern twist. Perfect for casual outings.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="fw-bold">$44.99</p>
+            <p class="mb-2 small text-muted">
+              <i class="bi bi-chat-left-text"></i> 15 reviews
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-primary flex-fill"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+              <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#quickViewModal4" title="Quick View">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button type="button" class="btn btn-outline-danger" title="Add to Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Quick View Modal for Product 4 -->
+      <div class="modal fade" id="quickViewModal4" tabindex="-1" aria-labelledby="quickViewModalLabel4" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="quickViewModalLabel4">Casual Loafers</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Casual Loafers">
+              <p>Slip-on comfort with a modern twist. Perfect for casual outings.</p>
+              <p class="fw-bold">$44.99</p>
+              <p class="mb-2 small text-muted">
+                <i class="bi bi-chat-left-text"></i> 15 reviews
+              </p>
+              <div id="reviewSuccess4" class="alert alert-success d-none" role="alert">
+                Thank you for your review!
+              </div>
+              <hr>
+              <h6 class="mb-2">Leave a Review</h6>
+              <form id="reviewForm4">
+                <div class="mb-2">
+                  <input type="text" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="mb-2">
+                  <textarea class="form-control" rows="2" placeholder="Your review" required></textarea>
+                </div>
+                <div class="mb-2">
+                  <select class="form-select" required>
+                    <option value="">Rating</option>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="3">★★★</option>
+                    <option value="2">★★</option>
+                    <option value="1">★</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+              </form>
+              <hr>
+              <h6 class="mb-2">Recent Reviews</h6>
+              <div class="mb-3 text-start">
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">Sarah</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Love the slip-on design!"</div>
+                </div>
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">David</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Great for weekend wear."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 5 -->
+      <div class="col-md-4 product-item" data-category="hiking" data-price="89.99" data-rating="4" data-name="Hiking Boots">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Hiking Boots">
+          <div class="card-body">
+            <h5 class="card-title">Hiking Boots</h5>
+            <p class="card-text">Rugged and durable boots for outdoor adventures and hiking trails.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="fw-bold">$89.99</p>
+            <p class="mb-2 small text-muted">
+              <i class="bi bi-chat-left-text"></i> 22 reviews
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-primary flex-fill"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+              <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#quickViewModal5" title="Quick View">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button type="button" class="btn btn-outline-danger" title="Add to Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Quick View Modal for Product 5 -->
+      <div class="modal fade" id="quickViewModal5" tabindex="-1" aria-labelledby="quickViewModalLabel5" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="quickViewModalLabel5">Hiking Boots</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Hiking Boots">
+              <p>Rugged and durable boots for outdoor adventures and hiking trails.</p>
+              <p class="fw-bold">$89.99</p>
+              <p class="mb-2 small text-muted">
+                <i class="bi bi-chat-left-text"></i> 22 reviews
+              </p>
+              <div id="reviewSuccess5" class="alert alert-success d-none" role="alert">
+                Thank you for your review!
+              </div>
+              <hr>
+              <h6 class="mb-2">Leave a Review</h6>
+              <form id="reviewForm5">
+                <div class="mb-2">
+                  <input type="text" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="mb-2">
+                  <textarea class="form-control" rows="2" placeholder="Your review" required></textarea>
+                </div>
+                <div class="mb-2">
+                  <select class="form-select" required>
+                    <option value="">Rating</option>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="3">★★★</option>
+                    <option value="2">★★</option>
+                    <option value="1">★</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+              </form>
+              <hr>
+              <h6 class="mb-2">Recent Reviews</h6>
+              <div class="mb-3 text-start">
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">Alex</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Perfect for mountain trails!"</div>
+                </div>
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">Emma</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Excellent grip and comfort."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 6 -->
+      <div class="col-md-4 product-item" data-category="athletic" data-price="69.99" data-rating="4" data-name="Athletic Trainers">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Athletic Trainers">
+          <div class="card-body">
+            <h5 class="card-title">Athletic Trainers</h5>
+            <p class="card-text">High-performance athletic shoes for gym workouts and sports activities.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="fw-bold">$69.99</p>
+            <p class="mb-2 small text-muted">
+              <i class="bi bi-chat-left-text"></i> 18 reviews
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-primary flex-fill"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+              <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#quickViewModal6" title="Quick View">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button type="button" class="btn btn-outline-danger" title="Add to Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Quick View Modal for Product 6 -->
+      <div class="modal fade" id="quickViewModal6" tabindex="-1" aria-labelledby="quickViewModalLabel6" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="quickViewModalLabel6">Athletic Trainers</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Athletic Trainers">
+              <p>High-performance athletic shoes for gym workouts and sports activities.</p>
+              <p class="fw-bold">$69.99</p>
+              <p class="mb-2 small text-muted">
+                <i class="bi bi-chat-left-text"></i> 18 reviews
+              </p>
+              <div id="reviewSuccess6" class="alert alert-success d-none" role="alert">
+                Thank you for your review!
+              </div>
+              <hr>
+              <h6 class="mb-2">Leave a Review</h6>
+              <form id="reviewForm6">
+                <div class="mb-2">
+                  <input type="text" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="mb-2">
+                  <textarea class="form-control" rows="2" placeholder="Your review" required></textarea>
+                </div>
+                <div class="mb-2">
+                  <select class="form-select" required>
+                    <option value="">Rating</option>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="3">★★★</option>
+                    <option value="2">★★</option>
+                    <option value="1">★</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+              </form>
+              <hr>
+              <h6 class="mb-2">Recent Reviews</h6>
+              <div class="mb-3 text-start">
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">Tom</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Great for weightlifting!"</div>
+                </div>
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">Lisa</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Perfect support for workouts."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 7 -->
+      <div class="col-md-4 product-item" data-category="dress" data-price="94.99" data-rating="4" data-name="Dress Shoes">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Dress Shoes">
+          <div class="card-body">
+            <h5 class="card-title">Dress Shoes</h5>
+            <p class="card-text">Elegant leather dress shoes for professional settings and formal events.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="fw-bold">$94.99</p>
+            <p class="mb-2 small text-muted">
+              <i class="bi bi-chat-left-text"></i> 11 reviews
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-primary flex-fill"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+              <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#quickViewModal7" title="Quick View">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button type="button" class="btn btn-outline-danger" title="Add to Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Quick View Modal for Product 7 -->
+      <div class="modal fade" id="quickViewModal7" tabindex="-1" aria-labelledby="quickViewModalLabel7" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="quickViewModalLabel7">Dress Shoes</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Dress Shoes">
+              <p>Elegant leather dress shoes for professional settings and formal events.</p>
+              <p class="fw-bold">$94.99</p>
+              <p class="mb-2 small text-muted">
+                <i class="bi bi-chat-left-text"></i> 11 reviews
+              </p>
+              <div id="reviewSuccess7" class="alert alert-success d-none" role="alert">
+                Thank you for your review!
+              </div>
+              <hr>
+              <h6 class="mb-2">Leave a Review</h6>
+              <form id="reviewForm7">
+                <div class="mb-2">
+                  <input type="text" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="mb-2">
+                  <textarea class="form-control" rows="2" placeholder="Your review" required></textarea>
+                </div>
+                <div class="mb-2">
+                  <select class="form-select" required>
+                    <option value="">Rating</option>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="3">★★★</option>
+                    <option value="2">★★</option>
+                    <option value="1">★</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+              </form>
+              <hr>
+              <h6 class="mb-2">Recent Reviews</h6>
+              <div class="mb-3 text-start">
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">Robert</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Perfect for business meetings."</div>
+                </div>
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">Jennifer</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Excellent quality leather."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 8 -->
+      <div class="col-md-4 product-item" data-category="sneaker" data-price="34.99" data-rating="3" data-name="Canvas Sneakers">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Canvas Sneakers">
+          <div class="card-body">
+            <h5 class="card-title">Canvas Sneakers</h5>
+            <p class="card-text">Classic canvas sneakers with rubber sole. Timeless style for everyday comfort.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="fw-bold">$34.99</p>
+            <p class="mb-2 small text-muted">
+              <i class="bi bi-chat-left-text"></i> 25 reviews
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-primary flex-fill"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+              <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#quickViewModal8" title="Quick View">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button type="button" class="btn btn-outline-danger" title="Add to Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Quick View Modal for Product 8 -->
+      <div class="modal fade" id="quickViewModal8" tabindex="-1" aria-labelledby="quickViewModalLabel8" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="quickViewModalLabel8">Canvas Sneakers</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Canvas Sneakers">
+              <p>Classic canvas sneakers with rubber sole. Timeless style for everyday comfort.</p>
+              <p class="fw-bold">$34.99</p>
+              <p class="mb-2 small text-muted">
+                <i class="bi bi-chat-left-text"></i> 25 reviews
+              </p>
+              <div id="reviewSuccess8" class="alert alert-success d-none" role="alert">
+                Thank you for your review!
+              </div>
+              <hr>
+              <h6 class="mb-2">Leave a Review</h6>
+              <form id="reviewForm8">
+                <div class="mb-2">
+                  <input type="text" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="mb-2">
+                  <textarea class="form-control" rows="2" placeholder="Your review" required></textarea>
+                </div>
+                <div class="mb-2">
+                  <select class="form-select" required>
+                    <option value="">Rating</option>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="3">★★★</option>
+                    <option value="2">★★</option>
+                    <option value="1">★</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+              </form>
+              <hr>
+              <h6 class="mb-2">Recent Reviews</h6>
+              <div class="mb-3 text-start">
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">Chris</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Great casual shoes!"</div>
+                </div>
+                <div class="border rounded p-2 mb-2">
+                  <div class="d-flex align-items-center mb-1">
+                    <span class="fw-bold me-2">Maria</span>
+                    <span class="text-warning">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </span>
+                  </div>
+                  <div class="small text-muted mb-1">"Comfortable and stylish."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -433,6 +1012,155 @@
       }, 3000);
       e.target.reset();
     });
+    document.getElementById('reviewForm4').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('reviewSuccess4').classList.remove('d-none');
+      setTimeout(function() {
+        document.getElementById('reviewSuccess4').classList.add('d-none');
+      }, 3000);
+      e.target.reset();
+    });
+    document.getElementById('reviewForm5').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('reviewSuccess5').classList.remove('d-none');
+      setTimeout(function() {
+        document.getElementById('reviewSuccess5').classList.add('d-none');
+      }, 3000);
+      e.target.reset();
+    });
+    document.getElementById('reviewForm6').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('reviewSuccess6').classList.remove('d-none');
+      setTimeout(function() {
+        document.getElementById('reviewSuccess6').classList.add('d-none');
+      }, 3000);
+      e.target.reset();
+    });
+    document.getElementById('reviewForm7').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('reviewSuccess7').classList.remove('d-none');
+      setTimeout(function() {
+        document.getElementById('reviewSuccess7').classList.add('d-none');
+      }, 3000);
+      e.target.reset();
+    });
+    document.getElementById('reviewForm8').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('reviewSuccess8').classList.remove('d-none');
+      setTimeout(function() {
+        document.getElementById('reviewSuccess8').classList.add('d-none');
+      }, 3000);
+      e.target.reset();
+    });
+
+    // Filter and Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const sortFilter = document.getElementById('sortFilter');
+    const productItems = document.querySelectorAll('.product-item');
+
+    function filterProducts() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedCategory = categoryFilter.value;
+      const sortBy = sortFilter.value;
+
+      let visibleProducts = [];
+
+      productItems.forEach(item => {
+        const productName = item.dataset.name.toLowerCase();
+        const productCategory = item.dataset.category;
+        const productPrice = parseFloat(item.dataset.price);
+        const productRating = parseInt(item.dataset.rating);
+
+        // Check if product matches search term
+        const matchesSearch = productName.includes(searchTerm);
+        
+        // Check if product matches category filter
+        const matchesCategory = !selectedCategory || productCategory === selectedCategory;
+
+        if (matchesSearch && matchesCategory) {
+          item.style.display = 'block';
+          visibleProducts.push({
+            element: item,
+            name: item.dataset.name,
+            price: productPrice,
+            rating: productRating
+          });
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Sort products
+      if (sortBy) {
+        const container = productItems[0].parentElement;
+        
+        visibleProducts.sort((a, b) => {
+          switch (sortBy) {
+            case 'price-low':
+              return a.price - b.price;
+            case 'price-high':
+              return b.price - a.price;
+            case 'rating':
+              return b.rating - a.rating;
+            case 'name':
+              return a.name.localeCompare(b.name);
+            default:
+              return 0;
+          }
+        });
+
+        // Reorder products in DOM
+        visibleProducts.forEach(product => {
+          container.appendChild(product.element);
+        });
+      }
+
+      // Show/hide "no results" message
+      const noResults = document.getElementById('noResults');
+      if (visibleProducts.length === 0) {
+        if (!noResults) {
+          const noResultsDiv = document.createElement('div');
+          noResultsDiv.id = 'noResults';
+          noResultsDiv.className = 'col-12 text-center py-5';
+          noResultsDiv.innerHTML = `
+            <div class="alert alert-info">
+              <i class="bi bi-search fs-1 d-block mb-3"></i>
+              <h4>No products found</h4>
+              <p>Try adjusting your search or filter criteria.</p>
+            </div>
+          `;
+          container.appendChild(noResultsDiv);
+        }
+      } else {
+        if (noResults) {
+          noResults.remove();
+        }
+      }
+    }
+
+    // Add event listeners
+    searchInput.addEventListener('input', filterProducts);
+    categoryFilter.addEventListener('change', filterProducts);
+    sortFilter.addEventListener('change', filterProducts);
+
+    // Clear filters button
+    const clearFiltersBtn = document.createElement('button');
+    clearFiltersBtn.className = 'btn btn-outline-secondary btn-sm mt-2';
+    clearFiltersBtn.innerHTML = '<i class="bi bi-x-circle"></i> Clear Filters';
+    clearFiltersBtn.onclick = function() {
+      searchInput.value = '';
+      categoryFilter.value = '';
+      sortFilter.value = '';
+      filterProducts();
+    };
+    
+    // Add clear filters button after the filters
+    const filterRow = document.querySelector('.row.mb-4');
+    const clearFiltersDiv = document.createElement('div');
+    clearFiltersDiv.className = 'col-12 text-center';
+    clearFiltersDiv.appendChild(clearFiltersBtn);
+    filterRow.appendChild(clearFiltersDiv);
   </script>
 </body>
 </html>

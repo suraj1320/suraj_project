@@ -35,6 +35,74 @@
         transform: translateY(0);
       }
     }
+    
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    /* Logo Styling */
+    .logo-container {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo-icon {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .logo-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
+    }
+    
+    .logo-icon i {
+      color: white;
+      font-size: 20px;
+    }
+    
+    .brand-text {
+      font-weight: 700;
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Footer Logo Styling */
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .logo-icon-large {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(13, 110, 253, 0.3);
+    }
+    
+    .logo-icon-large i {
+      color: white;
+      font-size: 28px;
+    }
   </style>
 </head>
 <body>
@@ -42,8 +110,12 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="logo.png" alt="Aurex Shoes Logo" width="40" height="40" class="me-2"> <!-- Replace with your logo path -->
-        <span>Aurex Shoes</span>
+        <div class="logo-container me-2">
+          <div class="logo-icon">
+            <i class="bi bi-shoe-1-fill"></i>
+          </div>
+        </div>
+        <span class="brand-text">Aurex Shoes</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -61,12 +133,12 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-section position-relative text-center text-light" style="background: url('https://images.unsplash.com/photo-1517263904808-5dc0d6e1b8a6?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; min-height: 400px;">
+  <section class="hero-section position-relative text-center text-light" style="background: url('https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; min-height: 400px;">
     <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.5);"></div>
     <div class="container position-relative py-5">
       <h1 class="display-4 fw-bold">Step Into Style with Aurex Shoes</h1>
       <p class="lead mb-4">Discover the latest collection of comfortable and trendy footwear for every occasion.</p>
-      <a href="#" class="btn btn-primary btn-lg">Shop Now</a>
+      <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
     </div>
   </section>
 
@@ -76,7 +148,7 @@
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1517263904808-5dc0d6e1b8a6?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Sneaker">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Sneaker">
           <div class="card-body">
             <h5 class="card-title">Classic Sneaker</h5>
             <p class="card-text">Comfort meets style in our classic sneaker. Perfect for everyday wear.</p>
@@ -88,13 +160,13 @@
               <i class="bi bi-star"></i>
             </div>
             <p class="fw-bold">$49.99</p>
-            <a href="#" class="btn btn-outline-primary">View Details</a>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal1">View Details</button>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1528701800484-905909a7b7b2?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Running Shoe">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Running Shoe">
           <div class="card-body">
             <h5 class="card-title">Running Shoe</h5>
             <p class="card-text">Lightweight and durable running shoes for your active lifestyle.</p>
@@ -106,13 +178,13 @@
               <i class="bi bi-star"></i>
             </div>
             <p class="fw-bold">$59.99</p>
-            <a href="#" class="btn btn-outline-primary">View Details</a>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal2">View Details</button>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Formal Shoe">
+          <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Formal Shoe">
           <div class="card-body">
             <h5 class="card-title">Formal Shoe</h5>
             <p class="card-text">Elevate your look with our premium formal shoes for special occasions.</p>
@@ -124,16 +196,52 @@
               <i class="bi bi-star-fill"></i>
             </div>
             <p class="fw-bold">$79.99</p>
-            <a href="#" class="btn btn-outline-primary">View Details</a>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal3">View Details</button>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Loafer">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Loafer">
           <div class="card-body">
-            <h5 class="card-title">Stylish Loafer</h5>
-            <p class="card-text">Slip into comfort with our stylish loafers, perfect for office or casual outings.</p>
+            <h5 class="card-title">Casual Loafers</h5>
+            <p class="card-text">Slip-on comfort with a modern twist. Perfect for casual outings.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="fw-bold">$44.99</p>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal4">View Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Boot">
+          <div class="card-body">
+            <h5 class="card-title">Hiking Boots</h5>
+            <p class="card-text">Rugged and durable boots for outdoor adventures and hiking trails.</p>
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="fw-bold">$89.99</p>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal5">View Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm feature-animate">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Sport Shoe">
+          <div class="card-body">
+            <h5 class="card-title">Athletic Trainers</h5>
+            <p class="card-text">High-performance athletic shoes for gym workouts and sports activities.</p>
             <div class="mb-2 text-warning">
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star-fill"></i>
@@ -142,51 +250,15 @@
               <i class="bi bi-star"></i>
             </div>
             <p class="fw-bold">$69.99</p>
-            <a href="#" class="btn btn-outline-primary">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Boot">
-          <div class="card-body">
-            <h5 class="card-title">Leather Boot</h5>
-            <p class="card-text">Rugged and stylish leather boots for all your adventures.</p>
-            <div class="mb-2 text-warning">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star"></i>
-              <i class="bi bi-star"></i>
-            </div>
-            <p class="fw-bold">$89.99</p>
-            <a href="#" class="btn btn-outline-primary">View Details</a>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal6">View Details</button>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card h-100 shadow-sm feature-animate">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Sport Shoe">
+          <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Canvas Sneakers">
           <div class="card-body">
-            <h5 class="card-title">Sport Shoe</h5>
-            <p class="card-text">High-performance sport shoes for your workout and training sessions.</p>
-            <div class="mb-2 text-warning">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star"></i>
-            </div>
-            <p class="fw-bold">$64.99</p>
-            <a href="#" class="btn btn-outline-primary">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm feature-animate">
-          <img src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f8d9?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Kids Shoe">
-          <div class="card-body">
-            <h5 class="card-title">Kids Shoe</h5>
+            <h5 class="card-title">Canvas Sneakers</h5>
             <p class="card-text">Fun and colorful shoes designed for kids’ comfort and play.</p>
             <div class="mb-2 text-warning">
               <i class="bi bi-star-fill"></i>
@@ -195,13 +267,238 @@
               <i class="bi bi-star-fill"></i>
               <i class="bi bi-star"></i>
             </div>
-            <p class="fw-bold">$39.99</p>
-            <a href="#" class="btn btn-outline-primary">View Details</a>
+            <p class="fw-bold">$34.99</p>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal7">View Details</button>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Product Modals -->
+  <!-- Modal 1 - Classic Sneaker -->
+  <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel1">Classic Sneaker</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Classic Sneaker">
+          <p>Comfort meets style in our classic sneaker. Perfect for everyday wear.</p>
+          <p class="fw-bold">$49.99</p>
+          <div class="mb-3 text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star"></i>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-primary w-100 mb-2"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+            </div>
+            <div class="col-6">
+              <a href="shop.html" class="btn btn-outline-primary w-100 mb-2">View in Shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 - Running Shoe -->
+  <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel2">Running Shoe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Running Shoe">
+          <p>Lightweight and durable running shoes for your active lifestyle.</p>
+          <p class="fw-bold">$59.99</p>
+          <div class="mb-3 text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-primary w-100 mb-2"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+            </div>
+            <div class="col-6">
+              <a href="shop.html" class="btn btn-outline-primary w-100 mb-2">View in Shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 - Formal Shoe -->
+  <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel3">Formal Shoe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Formal Shoe">
+          <p>Elevate your look with our premium formal shoes for special occasions.</p>
+          <p class="fw-bold">$79.99</p>
+          <div class="mb-3 text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-primary w-100 mb-2"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+            </div>
+            <div class="col-6">
+              <a href="shop.html" class="btn btn-outline-primary w-100 mb-2">View in Shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 - Casual Loafers -->
+  <div class="modal fade" id="productModal4" tabindex="-1" aria-labelledby="productModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel4">Casual Loafers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Casual Loafers">
+          <p>Slip-on comfort with a modern twist. Perfect for casual outings.</p>
+          <p class="fw-bold">$44.99</p>
+          <div class="mb-3 text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-primary w-100 mb-2"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+            </div>
+            <div class="col-6">
+              <a href="shop.html" class="btn btn-outline-primary w-100 mb-2">View in Shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 - Hiking Boots -->
+  <div class="modal fade" id="productModal5" tabindex="-1" aria-labelledby="productModalLabel5" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel5">Hiking Boots</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Hiking Boots">
+          <p>Rugged and durable boots for outdoor adventures and hiking trails.</p>
+          <p class="fw-bold">$89.99</p>
+          <div class="mb-3 text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star"></i>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-primary w-100 mb-2"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+            </div>
+            <div class="col-6">
+              <a href="shop.html" class="btn btn-outline-primary w-100 mb-2">View in Shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6 - Athletic Trainers -->
+  <div class="modal fade" id="productModal6" tabindex="-1" aria-labelledby="productModalLabel6" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel6">Athletic Trainers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Athletic Trainers">
+          <p>High-performance athletic shoes for gym workouts and sports activities.</p>
+          <p class="fw-bold">$69.99</p>
+          <div class="mb-3 text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star"></i>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-primary w-100 mb-2"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+            </div>
+            <div class="col-6">
+              <a href="shop.html" class="btn btn-outline-primary w-100 mb-2">View in Shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 7 - Canvas Sneakers -->
+  <div class="modal fade" id="productModal7" tabindex="-1" aria-labelledby="productModalLabel7" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel7">Canvas Sneakers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=400&q=80" class="img-fluid mb-3" alt="Canvas Sneakers">
+          <p>Classic canvas sneakers with rubber sole. Timeless style for everyday comfort.</p>
+          <p class="fw-bold">$34.99</p>
+          <div class="mb-3 text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-primary w-100 mb-2"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+            </div>
+            <div class="col-6">
+              <a href="shop.html" class="btn btn-outline-primary w-100 mb-2">View in Shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- About Section -->
   <section id="about" class="bg-dark text-light py-5">
@@ -292,7 +589,11 @@
       <div class="row">
         <!-- Logo & About -->
         <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
-          <img src="logo.png" alt="Aurex Shoes Logo" width="50" class="mb-3">
+          <div class="footer-logo mb-3">
+            <div class="logo-icon-large">
+              <i class="bi bi-shoe-1-fill"></i>
+            </div>
+          </div>
           <p>
             <strong>Aurex Shoes</strong><br>
             Step into style and comfort. Premium footwear for every occasion.
